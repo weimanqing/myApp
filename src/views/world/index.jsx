@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './style.module.less';
 const divStyle = {
 	color: 'blue',
 	fontSize: 20,
@@ -6,8 +7,9 @@ const divStyle = {
 	msTransition: 'all'
 };
 function World(props) {
-	console.log('----World--', props);
-	// const [ world, setWorld ] = useState('world');
+	console.log('----World--', props.match);
+	console.log('routeer---');
+	const [ name, setName ] = useState(props.match.params.name);
 	const [ count, setCount ] = useState(0);
 
 	useEffect(() => {
@@ -20,8 +22,9 @@ function World(props) {
 		setCount(count + 1);
 	};
 	return (
-		<div style={divStyle}>
-			<h1>world----</h1>
+		// <div style={divStyle}>
+		<div>
+			<h1>hello {name} world</h1>
 			<p>You clicked {count} times</p>
 			<button
 				onClick={() => {

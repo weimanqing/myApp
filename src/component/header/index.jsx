@@ -12,7 +12,7 @@ function Header() {
 					<Link to="/hello">hello</Link>
 				</li>
 				<li>
-					<Link to="/world/:id/:name">world</Link>
+					<Link to="/world/123/wmq">world</Link>
 				</li>
 				<li>{/* <Link to="/third">Third</Link> */}</li>
 			</ul>

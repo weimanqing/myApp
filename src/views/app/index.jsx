@@ -1,33 +1,14 @@
 import React from 'react';
-// import logo from '../../assets/logo.svg';
-import './App.css';
+import './styles.module.less';
 import { Switch, Route, withRouter, BrowserRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import routes from '../../routes';
+
 // import { AnimatedSwitch } from 'react-router-transition';
 import Hello from '../hello';
 import World from '../world';
 import Header from '../../component/header';
 
-// const Header = (props) => {
-// 	return (
-// 		<div>
-// 			<h1>App</h1>
-// 			<ul>
-// 				<li>
-// 					<Link to="/hello">hello</Link>
-// 				</li>
-// 				<li>
-// 					<Link to="/world">jumb from world to hello </Link>
-// 				</li>
-// 				<li>
-// 					<Link to="/two">use render to render component </Link>
-// 				</li>
-// 				<li>
-// 					<Link to="/world/2/wmq">world</Link>
-// 				</li>
-// 			</ul>
-// 		</div>
-// 	);
-// };
 const Content = (props) => {
 	return <div className="content">I am default component</div>;
 };
@@ -61,15 +42,36 @@ const getConfirmation = (message, callback) => {
 	callback(allowTransition);
 };
 
-function App(props) {
-	return (
-		<div className="App">
-			<BrowserRouter forceRefresh={false} getUserConfirmation={getConfirmation}>
-				<Header />
-				<Main />
-			</BrowserRouter>
-		</div>
-	);
+// function App(props) {
+// 	return (
+// 		<div className="App">
+// 			<BrowserRouter forceRefresh={false} getUserConfirmation={getConfirmation}>
+// 				<Header />
+// 				<Main />
+// 			</BrowserRouter>
+// 		</div>
+// 	);
+// }
+
+class App extends React.Component {
+	constructor(props, context) {
+		super(props, context);
+		this.state = {
+			username: 'wmq'
+		};
+	}
+	render() {
+		console.log(routes);
+		return (
+			<div className="App">
+				<BrowserRouter forceRefresh={false} getUserConfirmation={getConfirmation}>
+					<Header />
+					{/* <Main /> */}
+					{renderRoutes(routes)}
+				</BrowserRouter>
+			</div>
+		);
+	}
 }
 
 export default App;
