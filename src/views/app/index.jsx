@@ -7,7 +7,10 @@ import routes from '../../routes';
 // import { AnimatedSwitch } from 'react-router-transition';
 import Hello from '../hello';
 import World from '../world';
-import Header from '../../component/header';
+import Header from '@component/header';
+import { Provider } from 'react-redux';
+// 引入创建好的store实例
+import store from '../../store/index.js';
 
 const Content = (props) => {
 	return <div className="content">I am default component</div>;
@@ -64,11 +67,13 @@ class App extends React.Component {
 		console.log(routes);
 		return (
 			<div className="App">
-				<BrowserRouter forceRefresh={false} getUserConfirmation={getConfirmation}>
-					<Header />
-					{/* <Main /> */}
-					{renderRoutes(routes)}
-				</BrowserRouter>
+				<Provider store={store}>
+					<BrowserRouter forceRefresh={false} getUserConfirmation={getConfirmation}>
+						<Header />
+						{/* <Main /> */}
+						{renderRoutes(routes)}
+					</BrowserRouter>
+				</Provider>
 			</div>
 		);
 	}

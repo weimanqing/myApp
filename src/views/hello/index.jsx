@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import './styles.module.less';
+import { testStore } from '@store/todo/index';
 
 // 组件化样式
 const Title = styled.h1`
@@ -10,6 +11,7 @@ const Title = styled.h1`
 `;
 function Hello() {
 	const [ count, setCount ] = useState(0);
+	testStore();
 	useEffect(
 		() => {
 			return () => {

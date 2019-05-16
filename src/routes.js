@@ -1,6 +1,6 @@
-import NotFound from './views/notFound';
-import App from './views/app';
-import Hello from './views/hello';
+import NotFound from '@views/notFound';
+import App from '@views/app';
+import Hello from '@views/hello';
 // import World from './views/world';
 import World from '@views/world';
 
